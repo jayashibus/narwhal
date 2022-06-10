@@ -1,0 +1,20 @@
+.cards {
+  float: left;
+}
+.ui.cards ~ .ui.cards {
+  margin: 0;
+}
+.ui.cards {
+  margin: 0;
+}
+.card.content.archieves {
+  background-color: lightgrey;
+}
+.archieves {
+  background-color: lightgrey !important;
+}
+
+.ui.secondary.pointing.menu .active.item {
+  border-color: #2092e7;
+  color: #0083e3;
+}

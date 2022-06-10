@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import SideBar from "./Components/Sidebar/SideBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import data from "./data.json";
+import Favorites from "./Favorites";
+import Home from "./Home";
+import Archieves from "./Archieves";
 
 function App() {
+  const filteredFavorites = data.teams.filter(
+    (team) => team.is_favorited === true
+  );
+
+  const filteredArchieves = data.teams.filter(
+    (team) => team.is_archived === true
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="ui grid">
+      <div className="one wide column">
+        <SideBar />
+      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home data={data} />} />
+          <Route
+            path="favorites"
+            element={<Favorites favoriteData={filteredFavorites} data={data} />}
+          />
+          <Route
+            path="archieve"
+            element={
+              <Archieves archievesData={filteredArchieves} data={data} />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

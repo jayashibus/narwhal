@@ -1,0 +1,17 @@
+.ui.secondary.menu {
+  border-bottom: 1px solid #dddddd;
+}
+.ui.secondary.menu .active.item {
+  background: none;
+  font-weight: bold;
+}
+
+.ui.secondary.pointing.menu.noborder {
+  border-bottom: none;
+}
+.ui.header:first-child {
+  margin-top: 15px !important;
+}
+.header.space {
+  padding: 0 11px 0 19px !important;
+}
